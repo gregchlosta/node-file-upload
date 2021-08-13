@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - '2000:2000'
+    volumes:
+      - ./files:/app/files
+    environment:
+      NODE_PORT: 2000
+      NODE_ENV: 'production'
+      FILE_AGE: 15724800
+      DELETE_FILES_INTERVAL: 3600000
+    restart: unless-stopped
